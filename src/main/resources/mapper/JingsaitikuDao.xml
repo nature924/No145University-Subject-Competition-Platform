@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.JingsaitikuDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.JingsaitikuEntity" id="jingsaitikuMap">
+        <result property="daan" column="daan"/>
+        <result property="timu" column="timu"/>
+        <result property="timuleixing" column="timuleixing"/>
+        <result property="wenjian" column="wenjian"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.JingsaitikuVO" >
+		SELECT * FROM jingsaitiku  jingsaitiku         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.JingsaitikuVO" >
+		SELECT  jingsaitiku.* FROM jingsaitiku  jingsaitiku 	
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.JingsaitikuView" >
+
+		SELECT  jingsaitiku.* FROM jingsaitiku  jingsaitiku 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.JingsaitikuView" >
+		SELECT * FROM jingsaitiku  jingsaitiku <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+</mapper>
